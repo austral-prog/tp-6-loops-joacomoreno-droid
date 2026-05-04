@@ -41,9 +41,9 @@ def average(numbers):
         return 0.0
     suma = 0.0
     for elementos in numbers:
-        suma = suma + elementos
-    division = float(suma / len(numbers))
-    return division
+        suma += elementos
+    division = suma / len(numbers)
+    return round(division, 1)
 
 
 def describe(numbers):
@@ -58,5 +58,9 @@ def describe(numbers):
     """
     if not numbers:
         return "Empty list"
-    resultado = f"Min: {find_min(numbers)} Max:{find_max(numbers)} Range:{range_of(numbers)}Avg:{average(numbers)}"
-    return resultado
+    min_val = find_min(numbers)
+    max_val = find_max(numbers)
+    rango = range_of(numbers)
+    avg = average(numbers)
+
+    return f"Min:{min_val} Max:{max_val} Range:{rango} Avg:{avg}"
